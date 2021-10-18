@@ -7,6 +7,11 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/pokemon/:id',
+    name: 'Detail',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PokemonDetail.vue')
+  },
 ]
 
 const router = createRouter({
