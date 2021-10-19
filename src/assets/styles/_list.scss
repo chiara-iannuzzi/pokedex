@@ -1,0 +1,23 @@
+.pokemon-list{
+    display : flex;
+    gap : 20px;
+    flex-wrap : wrap;
+    &-item{
+        width : 20%;
+        background : $light-gray;
+        box-sizing: border-box;
+        border-radius : 20px;
+        &-img{
+            transition : .3s ease all;
+            width : 80%;
+            padding : 20px;
+            box-sizing: border-box;
+        }
+        &:hover{
+            & > .pokemon-list-item-img{
+                transform : scale(1.1);
+            }
+        }
+    }
+    
+}
