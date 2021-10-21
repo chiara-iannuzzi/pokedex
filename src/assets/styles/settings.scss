@@ -12,6 +12,10 @@ $light-gray : #dddddd;
     padding : 15px 0;
 }
 
+img{
+    box-sizing: content-box;
+}
+
 //Global
 body{
     margin : 0;
