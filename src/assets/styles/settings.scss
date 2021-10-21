@@ -14,7 +14,12 @@ $light-gray : #dddddd;
 
 //Global
 body{
+    margin : 0;
     background : #f06957;
+}
+
+#app{
+    min-height : 100vh;
 }
 
 .no-margin{
