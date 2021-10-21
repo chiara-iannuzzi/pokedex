@@ -14,12 +14,13 @@
           <h1 class="no-margin">{{ pokemon.species.name }}</h1>
         </div>
         <div class="detail-description">
-          <div class="type-container">
-            <p>Type :</p>
-            <p v-for="(type, index) in types" :key="index" :class="'type-item type-' + type.type.name"><img class="type-item-image" :src="getImgUrl(type.type.name)" /><span class="type-item-name">{{ type.type.name }}</span></p>
+              <div class="type-container">
+                <p>Type :</p>
+                <p v-for="(type, index) in types" :key="index" :class="'type-item type-' + type.type.name"><img class="type-item-image" :src="getImgUrl(type.type.name)" /><span class="type-item-name">{{ type.type.name }}</span></p>
+              </div>
+              <p v-for="(stat, index) in stats" :key="index">{{ stat.stat.name }} : {{ stat.base_stat }}</p>
+              <p v-for="(move, index) in pokemonMoves" :key="index">{{ move.move.name }}</p>
           </div>
-          <p v-for="(stat, index) in stats" :key="index">{{ stat.stat.name }} : {{ stat.base_stat }}</p>
-        </div>
         <div class="detail-description">
           <p>{{ pokemonDescriptionFirst }}</p>
           <p>{{ pokemonDescriptionSecond }}</p>
@@ -41,6 +42,7 @@ export default {
         pokemonDescriptionFirst: null,
         pokemonDescriptionSecond: null,
         pokemonNumber : null,
+        pokemonMoves : [],
     }),
     methods: {
       getImgUrl(pic) {
@@ -61,13 +63,13 @@ export default {
             result.data.types.forEach(type => {
               this.types.push(type);
             });
+            this.pokemonMoves = result.data.moves;
             //fetch url to get new infos
             axios.get(this.pokemon.species.url)
             .then((data) => {
               this.pokemonDescriptionFirst = data.data.flavor_text_entries[14].flavor_text;
               this.pokemonDescriptionSecond = data.data.flavor_text_entries[15].flavor_text;
               this.pokemonNumber = data.data.pokedex_numbers[0].entry_number;
-              console.log(this.pokemonNumber);
             })
         })
     }
