@@ -1,6 +1,6 @@
 # Pokedex
 
-A project using vue.js to see
+A project using vue.js to see pokemon, and maybe more
 
 ## Project setup
 ```
