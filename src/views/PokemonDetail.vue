@@ -1,12 +1,13 @@
 <template>
-  <section class="row">
+<main :class="'main-detail type-' + types[0].type.name + '-lighten'">
+  <section class="row" :style="{ backgroundImage: 'url(' + require('@/assets/bg/pokeball.svg') + ')' }">
     <div class="pokemon-wrapper">
       <div>
         <img class="" :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + this.$route.params.id +'.png'">
       </div>
       <div class="detail">
         <div class="detail-name">
-          <div class="detail-name-sprites">
+          <div :class="'detail-name-sprites type-' + types[0].type.name">
             <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ this.$route.params.id +'.png'">
             <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + this.$route.params.id + '.png'">
             <p>No°{{ pokemonNumber }}</p>
@@ -15,33 +16,35 @@
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Description</button>
+            <button :class="'active nav-link type-' + types[0].type.name + '-color-darken'" id="home-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab" aria-controls="desc" aria-selected="true">Description</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false">Home</button>
+            <button :class="'nav-link type-' + types[0].type.name + '-color-darken'" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="false">Stats</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
+            <button :class="'nav-link type-' + types[0].type.name + '-color-darken'" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Moves</button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+            <button :class="'nav-link type-' + types[0].type.name + '-color-darken'" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Evolution</button>
           </li>
         </ul>
         <div class="detail-description tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <div class="type-container">
-            <p>Type :</p>
-            <p v-for="(type, index) in types" :key="index" :class="'type-item type-' + type.type.name"><img class="type-item-image" :src="getImgUrl(type.type.name)" /><span class="type-item-name">{{ type.type.name }}</span></p>
+          <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p v-for="(stat, index) in stats" :key="index">{{ stat.stat.name }} : {{ stat.base_stat }}</p>
           </div>
-          <p v-for="(stat, index) in stats" :key="index">{{ stat.stat.name }} : {{ stat.base_stat }}</p>
-          </div>
-          <div class="tab-pane fade" id="desc" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="profile-tab">
             <p>{{ pokemonDescriptionFirst }}</p>
             <p>{{ pokemonDescriptionSecond }}</p>
+            <div class="type-container">
+              <p>Type :</p>
+              <p v-for="(type, index) in types" :key="index" :class="'type-item type-' + type.type.name"><img class="type-item-image" :src="getImgUrl(type.type.name)" /><span class="type-item-name">{{ type.type.name }}</span></p>
+            </div>
+            <p>Height : {{ pokemon.height / 10 }}m</p>
+            <p>Weight : {{ pokemon.weight / 10 }}kg</p>
           </div>
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div v-if="pokemonMoves.length">
-              <p v-for="(move, index) in pokemonMoves" :key="index">{{ move.move.name }}</p>
+              <div class="d-flex justify-content-between" v-for="(move, index) in pokemonMoves" :key="index"><span>{{ move.move.name }}</span> <span>Learned at level {{ move.version_group_details[0].level_learned_at }}, by {{ move.version_group_details[0].move_learn_method.name }}</span></div>
             </div>
             <div v-else>
               <p>No moves registered, sorry ! Let's wait for an update :)</p>
@@ -52,6 +55,7 @@
       </div>
     </div>
   </section>
+  </main>
 </template>
 
 <script>

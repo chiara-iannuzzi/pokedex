@@ -3,78 +3,6 @@
 }
 
 .type-{
-    &bug {
-        background: #92BC2C;
-    }
-    
-    &dark {
-        background: #595761;
-    }
-    
-    &dragon {
-        background: #0C69C8;
-    }
-    
-    &electric {
-        background: #F2D94E;
-    }
-    
-    &fire {
-        background: #FBA54C;
-    }
-    
-    &fairy {
-        background: #EE90E6;
-    }
-    
-    &fighting {
-        background: #D3425F;
-    }
-    
-    &flying {
-        background: #A1BBEC;
-    }
-    
-    &ghost {
-        background: #5F6DBC;
-    }
-    
-    &grass {
-        background: #5FBD58;
-    }
-    
-    &ground {
-        background: #DA7C4D;
-    }
-    
-    &ice {
-        background: #75D0C1;
-    }
-    
-    &normal {
-        background: #A0A29F;
-    }
-    
-    &poison {
-        background: #B763CF;
-    }
-    
-    &psychic {
-        background: #FA8581;
-    }
-    
-    &rock {
-        background: #C9BB8A;
-    }
-    
-    &steel {
-        background: #5695A3;
-    }
-    
-    &water {
-        background: #539DDF;
-    }
-
     &container{
         display : flex;
         align-items: center;
@@ -96,6 +24,7 @@
 }
 
 .detail{
+    width:100%;
     &-name{
         background : #333;
         color : #eee;
@@ -105,7 +34,6 @@
         align-items: center;
         margin-top : 60px;
         &-sprites{
-            background : rgb(219, 66, 39);
             display : flex;
             align-items : center;
             padding: 5px 30px 5px 180px;
