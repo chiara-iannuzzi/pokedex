@@ -19,11 +19,15 @@ img{
 //Global
 body{
     margin : 0;
-    background : #f06957;
 }
 
 #app{
     min-height : 100vh;
+}
+
+main{
+    min-height : 100vh;
+    padding-top : 100px;
 }
 
 .no-margin{

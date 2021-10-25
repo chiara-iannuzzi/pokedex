@@ -16,6 +16,7 @@
 
 #nav {
   padding: 30px;
+  position : fixed;
 }
 
 #nav a {
