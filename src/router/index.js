@@ -8,6 +8,11 @@ const routes = [
     component: Home
   },
   {
+    path: '/pokedex',
+    name: 'Home',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PokemonList.vue')
+  },
+  {
     path: '/pokemon/:id',
     name: 'Detail',
     component: () => import(/* webpackChunkName: "about" */ '../views/PokemonDetail.vue')

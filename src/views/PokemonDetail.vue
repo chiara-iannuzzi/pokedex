@@ -30,7 +30,17 @@
         </ul>
         <div class="detail-description tab-content" id="myTabContent">
           <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <p v-for="(stat, index) in stats" :key="index">{{ stat.stat.name }} : {{ stat.base_stat }}</p>
+            <p>HP</p>
+            <p>Attack</p>
+            <stats :size='stats[1].base_stat' :type="types[0].type.name"></stats>
+            <p>Defense</p>
+            <stats :size='stats[2].base_stat' :type="types[0].type.name"></stats>
+            <p>Special Attack</p>
+            <stats :size='stats[3].base_stat' :type="types[0].type.name"></stats>
+            <p>Special Defense</p>
+            <stats :size='stats[4].base_stat' :type="types[0].type.name"></stats>
+            <p>Speed</p>
+            <stats :size='stats[5].base_stat' :type="types[0].type.name"></stats>
           </div>
           <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="profile-tab">
             <p>{{ pokemonDescriptionFirst }}</p>
@@ -61,8 +71,12 @@
 <script>
 
 import axios from 'axios';
+import Stats from './../components/Stats.vue'
 
 export default {
+  components : {
+    Stats
+  },
     data: () => ({
         pokemon: null,
         stats : [],
