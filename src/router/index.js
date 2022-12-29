@@ -17,6 +17,11 @@ const routes = [
     name: 'Detail',
     component: () => import(/* webpackChunkName: "about" */ '../views/PokemonDetail.vue')
   },
+  {
+    path: '/favorites',
+    name: 'Favorites',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Favorites.vue')
+  },
 ]
 
 const router = createRouter({

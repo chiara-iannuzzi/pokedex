@@ -2,8 +2,11 @@
   <div id="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/pokedex">Pokedex</router-link>
+    <router-link to="/favorites">Favorites</router-link>
   </div>
-  <router-view/>
+  <router-view v-slot="{ Component }">
+        <component :is="Component"></component>
+  </router-view>
 </template>
 
 <style>
@@ -27,5 +30,18 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.route-enter-from{
+  opacity : 0;
+}
+.route-enter-active{
+  opacity : 1;
+}
+.route-leave-to{
+  opacity : 0;
+}
+.route-leave-active{
+  transition: .3s ease all;
 }
 </style>
