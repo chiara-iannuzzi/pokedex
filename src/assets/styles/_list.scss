@@ -1,13 +1,40 @@
+@keyframes gelatine {
+    0% { transform: scale(1, 1); }
+    25% { transform: scale(0.9, 1.1); }
+    50% { transform: scale(1.1, 0.9); }
+    75% { transform: scale(0.95, 1.05); }
+  }
+
 .pokemon-list{
     display : flex;
     gap : 20px;
     flex-wrap : wrap;
+    padding : 50px 0;
+    &-wrapper{
+        width : 45%;
+        position : relative;
+        margin-top : 20px;
+        @media only screen and (min-width: 768px) {
+            width : 30%;
+        }
+        @media only screen and (min-width: 1200px) {
+            width : 20%;
+        }
+    }
+
     &-item{
-        width : 20%;
-        background : $light-gray;
+        width : 100%;
         box-sizing: border-box;
         border-radius : 20px;
+        display : block;
+        & .vue-load-image{
+            background-image: url('~@/assets/bg/pokeball.svg');
+            background-repeat: no-repeat;
+            background-size : 75%;
+            background-position: -20px -20px;
+        }
         &-img{
+            min-height : 50px;
             transition : .3s ease all;
             width : 80%;
             padding : 20px;
@@ -19,5 +46,26 @@
             }
         }
     }
-    
+
+    &-favorite{
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        fill: white;
+        background: #d2d2dc;
+        padding: 5px 9px;
+        border-radius: 50px;
+        right: 10px;
+        top: -10px;
+        cursor : pointer;
+        box-shadow : #d2d2dc 0 0 0px;
+        transition : .3s ease all;
+        &:hover{
+            box-shadow : rgba(black, 0.3) 1px 1px 10px;
+            transform : scale(1.1)
+        }
+        &.is-favorite{
+            animation: gelatine 0.5s ease;
+        }
+    }
 }

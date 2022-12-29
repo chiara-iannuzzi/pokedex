@@ -41,14 +41,23 @@ $color-list:
     .type-#{$className} {
         background: $color !important;
     }
+    .type-#{$className}-gradient {
+        background: linear-gradient(to bottom right, rgba($color, 0.15), rgba($color, 0.5)) !important;
+    }
     .type-#{$className}-lighten {
-        background: rgba($color, 0.3) !important;
+        background : rgba($color, 0.1);
     }
     .type-#{$className}-color-darken {
         color: darken($color, 10%) !important;
     }
+    .type-#{$className}-darken {
+        background: darken($color, 15%) !important;
+    }
     .type-#{$className}-color {
         color: $color !important;
+    }
+    .type-#{$className}-shadow{
+        box-shadow: 0 0 6px $color;
     }
     .#{$className}-border {
         border: 1px solid $color !important;
