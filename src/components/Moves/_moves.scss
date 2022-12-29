@@ -1,0 +1,47 @@
+@mixin MovesBlocItem($width){
+    width : $width;
+    padding : 5px 10px;
+}
+
+.moves{
+    // &-container{
+        
+    // }
+    &-wrapper{
+        max-height : 300px;
+        overflow-y: auto;
+    }
+    &-title{
+        display : flex; 
+        color : white;
+    }
+
+    //item
+    &-item{
+        display : flex;
+    }
+    &-name{
+        @include MovesBlocItem(20%);
+    }
+    &-type{
+        @include MovesBlocItem(10%);
+    }
+    &-category{
+        @include MovesBlocItem(15%);
+    }
+    &-power{
+        @include MovesBlocItem(10%);
+    }
+    &-pp{
+        @include MovesBlocItem(10%);
+    }
+    &-accuracy{
+        @include MovesBlocItem(10%);
+    }
+    &-priority{
+        @include MovesBlocItem(10%);
+    }
+    &-generation{
+        @include MovesBlocItem(15%);
+    }
+}
