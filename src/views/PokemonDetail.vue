@@ -2,14 +2,20 @@
 <main :class="'main-detail type-' + types[0].type.name + '-gradient'">
   <section class="row">
     <div class="pokemon-wrapper">
-      <div>
+      <div class="detail-image">
         <img class="" :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + this.$route.params.id +'.png'">
       </div>
       <div class="detail">
         <div class="detail-name">
           <div :class="'detail-name-sprites type-' + types[0].type.name">
-            <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ this.$route.params.id +'.png'">
-            <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + this.$route.params.id + '.png'">
+            <div class="detail-name-sprites-container-normal">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ this.$route.params.id +'.png'">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + this.$route.params.id + '.png'">
+            </div>
+            <div class="detail-name-sprites-container-shiny">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+ this.$route.params.id +'.png'">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/' + this.$route.params.id + '.png'">
+            </div>
             <p>No°{{ pokemonNumber }}</p>
           </div>
           <h1 class="no-margin">{{ pokemon.species.name }}</h1>
