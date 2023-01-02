@@ -63,7 +63,6 @@
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div v-if="pokemonMoves.length">
               <moves :type="types[0].type.name" :moves="pokemonMoves" ></moves>
-              <!-- <div class="d-flex justify-content-between" v-for="(move, index) in pokemonMoves" :key="index"><span>{{ move.move.name }}</span> <span>Learned at level {{ move.version_group_details[0].level_learned_at }}, by {{ move.version_group_details[0].move_learn_method.name }}</span></div> -->
             </div>
             <div v-else>
               <p>No moves registered, sorry ! Let's wait for an update :)</p>
@@ -182,7 +181,8 @@ export default {
               axios.get(data.data.evolution_chain.url)
               .then((data) => {
                 console.log(data.data.chain);
-                
+                console.log(data.data.chain.species.url);
+                console.log(data.data.chain.species.name + " évolue en " + data.data.chain.evolves_to[0].species.name + " qui évolue en " + data.data.chain.evolves_to[0].evolves_to[0].species.name);
               })
 
             })

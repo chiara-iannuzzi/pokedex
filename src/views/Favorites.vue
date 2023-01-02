@@ -28,7 +28,7 @@ export default {
   beforeMount() {
     let favorites = JSON.parse(localStorage.getItem('myFavorites'));
     this.pokemonsId.push(favorites);
-    if(this.pokemons.length){
+    if(this.pokemonsId.length){
         this.pokemonsId[0].forEach((element) => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${element}`)
             .then((result) => {

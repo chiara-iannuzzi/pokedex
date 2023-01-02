@@ -19,7 +19,7 @@
 import axios from 'axios';
 import Heart from '../components/Heart/heart.vue';
 import Card from '../components/Card/Card.vue';
-import Loader from '../components/Loader/Loader.vue';
+import Loader from '../components/Loader/loader.vue';
 import _ from 'lodash'
 
 export default {
