@@ -19,13 +19,18 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 20px 30px;
   position : fixed;
+  z-index : 20;
+  width : 100%;
+  background : linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+  text-align: left;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin-right : 20px;
 }
 
 #nav a.router-link-exact-active {

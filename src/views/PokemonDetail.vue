@@ -2,14 +2,20 @@
 <main :class="'main-detail type-' + types[0].type.name + '-gradient'">
   <section class="row">
     <div class="pokemon-wrapper">
-      <div>
+      <div class="detail-image">
         <img class="" :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + this.$route.params.id +'.png'">
       </div>
       <div class="detail">
         <div class="detail-name">
           <div :class="'detail-name-sprites type-' + types[0].type.name">
-            <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ this.$route.params.id +'.png'">
-            <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + this.$route.params.id + '.png'">
+            <div class="detail-name-sprites-container-normal">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+ this.$route.params.id +'.png'">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/' + this.$route.params.id + '.png'">
+            </div>
+            <div class="detail-name-sprites-container-shiny">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+ this.$route.params.id +'.png'">
+              <img :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/' + this.$route.params.id + '.png'">
+            </div>
             <p>No°{{ pokemonNumber }}</p>
           </div>
           <h1 class="no-margin">{{ pokemon.species.name }}</h1>
@@ -57,7 +63,6 @@
           <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div v-if="pokemonMoves.length">
               <moves :type="types[0].type.name" :moves="pokemonMoves" ></moves>
-              <!-- <div class="d-flex justify-content-between" v-for="(move, index) in pokemonMoves" :key="index"><span>{{ move.move.name }}</span> <span>Learned at level {{ move.version_group_details[0].level_learned_at }}, by {{ move.version_group_details[0].move_learn_method.name }}</span></div> -->
             </div>
             <div v-else>
               <p>No moves registered, sorry ! Let's wait for an update :)</p>
@@ -176,7 +181,8 @@ export default {
               axios.get(data.data.evolution_chain.url)
               .then((data) => {
                 console.log(data.data.chain);
-                
+                console.log(data.data.chain.species.url);
+                console.log(data.data.chain.species.name + " évolue en " + data.data.chain.evolves_to[0].species.name + " qui évolue en " + data.data.chain.evolves_to[0].evolves_to[0].species.name);
               })
 
             })

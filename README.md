@@ -40,3 +40,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 [x] mettre favori dans l'ordre
 
 [] responsive
+
+### Ressource
+
+https://naramsim.github.io/Colosseum/
+https://github.com/Naramsim/Colosseum/blob/master/src/scripts/helpers/getMultipliers.js
+https://fr.vuejs.org/v2/style-guide/index.html
