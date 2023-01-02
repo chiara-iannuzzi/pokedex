@@ -2,18 +2,7 @@
 <section class="row">
     <div class="pokemon-list">
         <div v-for="(pokemon, index) in pokemonsSort" :key="index" :class="'pokemon-list-wrapper'" :data-id=" pokemon.id">
-            <a :class="'type-' + pokemon.types[0].type.name + '-gradient pokemon-list-item'" :href="'pokemon/' + pokemon.id">
-            <vue-load-image>
-                <template v-slot:image>
-                    <img class="pokemon-list-item-img" :src="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/' + pokemon.id +'.png'">
-                </template>
-                <template v-slot:preloader>
-                    <img src="../assets/loader/loader.gif" />
-                </template>
-                <template v-slot:error>Image load fails</template>
-            </vue-load-image>
-            <span :class="'type-' + pokemon.types[0].type.name + '-color-darken'">{{ pokemon.name }}</span>
-            </a>
+            <Card v-if="pokemon" :type="pokemon.types[0].type.name" :id="pokemon.id" :name="pokemon.name"/>
         </div>
     </div>
     </section>
@@ -22,7 +11,7 @@
 <script>
 
 import axios from 'axios';
-import VueLoadImage from 'vue-load-image'
+import Card from '../components/Card/Card.vue'
 
 export default {
   data: function() {
@@ -41,8 +30,6 @@ export default {
           this.pokemons.push(result.data)
         })
     })
-
-    console.log(this.pokemons);
   },
   mounted(){
 
@@ -62,7 +49,7 @@ export default {
       }, 500)
   },
   components: {
-        'vue-load-image': VueLoadImage
+        Card
     },
     
 }
