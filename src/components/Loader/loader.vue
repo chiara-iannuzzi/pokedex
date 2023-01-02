@@ -1,6 +1,7 @@
 <template>
-    <div v-if="!isLoaded">
-        <img src="../assets/loader/loader.gif" />
+    <div class="loader-wrapper" v-bind:class=" { 'is-visible' : isLoading }"></div>
+    <div class="loader" v-bind:class=" { 'is-visible' : isLoading }">
+        <p>loading...</p>
     </div>
 </template>
 
@@ -10,8 +11,8 @@ export default {
     data() {
         
     },
-    props: ['type', 'size', 'maxSize', 'yo', 'isHp'],
-    name : 'stats',
+    props: ['isLoading'],
+    name : 'Loader',
 }
 
 </script>
