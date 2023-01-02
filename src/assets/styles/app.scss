@@ -6,3 +6,8 @@
 
 @import "/src/components/Stats/_stats";
 @import "/src/components/Moves/_moves";
+@import "/src/components/Loader/loader";
+
+.no-overflow{
+    overflow: hidden;
+}

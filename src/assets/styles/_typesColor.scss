@@ -43,6 +43,9 @@ $color-list:
     }
     .type-#{$className}-gradient {
         background: linear-gradient(to bottom right, rgba($color, 0.15), rgba($color, 0.5)) !important;
+        &.with-hover:hover{
+            background: linear-gradient(to bottom right, rgba($color, 0.35), rgba($color, 0.7)) !important;
+        }
     }
     .type-#{$className}-lighten {
         background : rgba($color, 0.1);
